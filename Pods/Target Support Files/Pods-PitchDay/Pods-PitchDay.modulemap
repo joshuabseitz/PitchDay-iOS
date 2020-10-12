@@ -1,0 +1,6 @@
+framework module Pods_PitchDay {
+  umbrella header "Pods-PitchDay-umbrella.h"
+
+  export *
+  module * { export * }
+}

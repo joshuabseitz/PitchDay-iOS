@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class SignUpViewController: UIViewController {
 
@@ -48,6 +50,7 @@ class SignUpViewController: UIViewController {
 	@IBOutlet weak var footerLabel: UILabel!
 	
 // MARK: - View Lifecycles
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -75,8 +78,22 @@ class SignUpViewController: UIViewController {
 // MARK: - IBActions
 	
 	@IBAction func didTapSignUp(_ sender: Any) {
-		saveUser()
-		 navigationController?.popViewController(animated: true)
+		self.authenticate()
+		navigationController?.popViewController(animated: true)
+	}
+	
+
+// MARK: - FUNCTIONS
+	
+	func authenticate() {
+		Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { authResult, error in
+			if error != nil {
+				print(error!)
+			} else {
+				self.saveUser()
+				print("Successful")
+			}
+		}
 	}
 	
 	
@@ -93,19 +110,10 @@ class SignUpViewController: UIViewController {
         }
 		
 		let user = User(context: PersistenceController.container.viewContext)
-		
 		user.email = email
-		user.password = password
 		
-		print("Created user.")
-		didfinishCreatingUser(user)
-
+		PersistenceController.save(user)
         navigationController?.popViewController(animated: true)
     }
-	
-	func didfinishCreatingUser(_ user: User) {
-		PersistenceController.save(user)
-		print("User saved.")
-	}
 
 }

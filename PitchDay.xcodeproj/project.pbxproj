@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2635F9CF2FC933D74A677382 /* Pods_PitchDay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49464C4276BA52EB14E23E9E /* Pods_PitchDay.framework */; };
 		570BDF362534D4C200E1EE5A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BDF352534D4C200E1EE5A /* SignUpViewController.swift */; };
 		570BDF382534E31600E1EE5A /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BDF372534E31600E1EE5A /* PersistenceController.swift */; };
+		570BDF3C253500CC00E1EE5A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 570BDF3B253500CC00E1EE5A /* GoogleService-Info.plist */; };
 		5796F4DA2533E65400EDF51D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796F4D92533E65400EDF51D /* AppDelegate.swift */; };
 		5796F4DC2533E65400EDF51D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796F4DB2533E65400EDF51D /* SceneDelegate.swift */; };
 		5796F4DE2533E65400EDF51D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796F4DD2533E65400EDF51D /* SignInViewController.swift */; };
@@ -19,8 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DA1ADFF704C02D1685BF6AA /* Pods-PitchDay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PitchDay.release.xcconfig"; path = "Target Support Files/Pods-PitchDay/Pods-PitchDay.release.xcconfig"; sourceTree = "<group>"; };
+		49464C4276BA52EB14E23E9E /* Pods_PitchDay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PitchDay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		570BDF352534D4C200E1EE5A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		570BDF372534E31600E1EE5A /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		570BDF3B253500CC00E1EE5A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5796F4D62533E65400EDF51D /* PitchDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5796F4D92533E65400EDF51D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5796F4DB2533E65400EDF51D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +35,7 @@
 		5796F4E52533E65600EDF51D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5796F4E82533E65600EDF51D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5796F4EA2533E65600EDF51D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FBFF22E4B7950EB441551F6 /* Pods-PitchDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PitchDay.debug.xcconfig"; path = "Target Support Files/Pods-PitchDay/Pods-PitchDay.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2635F9CF2FC933D74A677382 /* Pods_PitchDay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +56,8 @@
 				5796F4D82533E65400EDF51D /* PitchDay */,
 				5796F4D72533E65400EDF51D /* Products */,
 				5796F4E52533E65600EDF51D /* Assets.xcassets */,
+				E0C5C38541EE3CDC083D53CE /* Pods */,
+				ED049D7F8505CB711292B79B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +78,7 @@
 				5796F4F62534C07C00EDF51D /* Storyboard */,
 				5796F4F82534C0A400EDF51D /* Models */,
 				5796F4EA2533E65600EDF51D /* Info.plist */,
+				570BDF3B253500CC00E1EE5A /* GoogleService-Info.plist */,
 			);
 			path = PitchDay;
 			sourceTree = "<group>";
@@ -100,6 +110,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		E0C5C38541EE3CDC083D53CE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5FBFF22E4B7950EB441551F6 /* Pods-PitchDay.debug.xcconfig */,
+				2DA1ADFF704C02D1685BF6AA /* Pods-PitchDay.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		ED049D7F8505CB711292B79B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49464C4276BA52EB14E23E9E /* Pods_PitchDay.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -107,9 +134,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5796F4ED2533E65600EDF51D /* Build configuration list for PBXNativeTarget "PitchDay" */;
 			buildPhases = (
+				A3E7F9C09A3E02BC10045752 /* [CP] Check Pods Manifest.lock */,
 				5796F4D22533E65400EDF51D /* Sources */,
 				5796F4D32533E65400EDF51D /* Frameworks */,
 				5796F4D42533E65400EDF51D /* Resources */,
+				8284F8DAB0A25C5A2E127C24 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -159,12 +188,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				5796F4E92533E65600EDF51D /* LaunchScreen.storyboard in Resources */,
+				570BDF3C253500CC00E1EE5A /* GoogleService-Info.plist in Resources */,
 				5796F4E62533E65600EDF51D /* Assets.xcassets in Resources */,
 				5796F4E12533E65400EDF51D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8284F8DAB0A25C5A2E127C24 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PitchDay/Pods-PitchDay-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PitchDay/Pods-PitchDay-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PitchDay/Pods-PitchDay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3E7F9C09A3E02BC10045752 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PitchDay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5796F4D22533E65400EDF51D /* Sources */ = {
@@ -318,6 +390,7 @@
 		};
 		5796F4EE2533E65600EDF51D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FBFF22E4B7950EB441551F6 /* Pods-PitchDay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -327,7 +400,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.joshuabseitz.PitchDay;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joshuabseitz.novusclub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -336,6 +409,7 @@
 		};
 		5796F4EF2533E65600EDF51D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DA1ADFF704C02D1685BF6AA /* Pods-PitchDay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -345,7 +419,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.joshuabseitz.PitchDay;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joshuabseitz.novusclub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
