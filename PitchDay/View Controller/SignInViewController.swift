@@ -9,9 +9,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SignInViewController: UIViewController {
 	
 //	MARK: - Properties
+	
+	// TODO: logo UIImageView
 	
 	// Login Button
 	let loginButtonCornerRadius: CGFloat = 5.0
@@ -34,11 +36,19 @@ class ViewController: UIViewController {
 	let emailFieldBorderWidth: CGFloat = 0.75
 	let emailFieldPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
 	
+	// Sign Up Button
+	let signUpButtonText = "Don't already have an account?"
+	
+	// Footer Label
+	let footerLabelText = "novusclub.org"
+	
 //	MARK: - IBOUTLETS
 	@IBOutlet weak var emailField: UITextField!
 	@IBOutlet weak var passwordField: UITextField!
 	@IBOutlet weak var loginButton: UIButton!
 	@IBOutlet weak var logo: UIImageView!
+	@IBOutlet weak var footerLabel: UILabel!
+	@IBOutlet weak var signUpButton: UIButton!
 	
 //	MARK: - View Lifecycles
 	override func viewDidLoad() {
@@ -61,6 +71,28 @@ class ViewController: UIViewController {
 		loginButton.backgroundColor = loginButtonBackgroundColor
 		loginButton.layer.cornerRadius = loginButtonCornerRadius
 		
+		signUpButton.setTitle(signUpButtonText, for: .normal)
+		footerLabel.text = footerLabelText
+		
+	}
+	
+// MARK - IBAction
+	
+	@IBAction func didTapLogin(_ sender: Any) {
+		
+		guard let email = emailField.text, !email.isEmpty else {
+			print("emailField is empty")
+            return
+        }
+		
+		guard let password = passwordField.text, !password.isEmpty else {
+			print("passwordField is empty")
+            return
+        }
+	}
+	
+	@IBAction func didTapSignUp(_ sender: Any) {
+		performSegue(withIdentifier: "signUp", sender: sender)
 	}
 	
 }

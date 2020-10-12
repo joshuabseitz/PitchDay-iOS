@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		570BDF362534D4C200E1EE5A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BDF352534D4C200E1EE5A /* SignUpViewController.swift */; };
 		5796F4DA2533E65400EDF51D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796F4D92533E65400EDF51D /* AppDelegate.swift */; };
 		5796F4DC2533E65400EDF51D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796F4DB2533E65400EDF51D /* SceneDelegate.swift */; };
-		5796F4DE2533E65400EDF51D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796F4DD2533E65400EDF51D /* ViewController.swift */; };
+		5796F4DE2533E65400EDF51D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796F4DD2533E65400EDF51D /* SignInViewController.swift */; };
 		5796F4E12533E65400EDF51D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5796F4DF2533E65400EDF51D /* Main.storyboard */; };
 		5796F4E42533E65400EDF51D /* PitchDay.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5796F4E22533E65400EDF51D /* PitchDay.xcdatamodeld */; };
 		5796F4E62533E65600EDF51D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5796F4E52533E65600EDF51D /* Assets.xcassets */; };
@@ -17,10 +18,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		570BDF352534D4C200E1EE5A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5796F4D62533E65400EDF51D /* PitchDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5796F4D92533E65400EDF51D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5796F4DB2533E65400EDF51D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5796F4DD2533E65400EDF51D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5796F4DD2533E65400EDF51D /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		5796F4E02533E65400EDF51D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5796F4E32533E65400EDF51D /* PitchDay.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PitchDay.xcdatamodel; sourceTree = "<group>"; };
 		5796F4E52533E65600EDF51D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -44,6 +46,7 @@
 			children = (
 				5796F4D82533E65400EDF51D /* PitchDay */,
 				5796F4D72533E65400EDF51D /* Products */,
+				5796F4E52533E65600EDF51D /* Assets.xcassets */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,14 +63,38 @@
 			children = (
 				5796F4D92533E65400EDF51D /* AppDelegate.swift */,
 				5796F4DB2533E65400EDF51D /* SceneDelegate.swift */,
-				5796F4DD2533E65400EDF51D /* ViewController.swift */,
-				5796F4DF2533E65400EDF51D /* Main.storyboard */,
-				5796F4E52533E65600EDF51D /* Assets.xcassets */,
-				5796F4E72533E65600EDF51D /* LaunchScreen.storyboard */,
+				5796F4F72534C08500EDF51D /* View Controller */,
+				5796F4F62534C07C00EDF51D /* Storyboard */,
+				5796F4F82534C0A400EDF51D /* Model */,
 				5796F4EA2533E65600EDF51D /* Info.plist */,
-				5796F4E22533E65400EDF51D /* PitchDay.xcdatamodeld */,
 			);
 			path = PitchDay;
+			sourceTree = "<group>";
+		};
+		5796F4F62534C07C00EDF51D /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				5796F4DF2533E65400EDF51D /* Main.storyboard */,
+				5796F4E72533E65600EDF51D /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		5796F4F72534C08500EDF51D /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5796F4DD2533E65400EDF51D /* SignInViewController.swift */,
+				570BDF352534D4C200E1EE5A /* SignUpViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		5796F4F82534C0A400EDF51D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5796F4E22533E65400EDF51D /* PitchDay.xcdatamodeld */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +168,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5796F4DE2533E65400EDF51D /* ViewController.swift in Sources */,
+				570BDF362534D4C200E1EE5A /* SignUpViewController.swift in Sources */,
+				5796F4DE2533E65400EDF51D /* SignInViewController.swift in Sources */,
 				5796F4DA2533E65400EDF51D /* AppDelegate.swift in Sources */,
 				5796F4DC2533E65400EDF51D /* SceneDelegate.swift in Sources */,
 				5796F4E42533E65400EDF51D /* PitchDay.xcdatamodeld in Sources */,
