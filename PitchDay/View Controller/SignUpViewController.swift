@@ -183,66 +183,127 @@ class SignUpViewController: UIViewController {
 	
 	func createUser() {
 		
-		Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { authResult, error in
-			if error != nil {
-				print("The user was not created due to an error")
-			} else {
-				let db = Firestore.firestore()
-				db.collection("users").addDocument(data: ["firstName": self.firstNameField.text!,
-														  "lastName": self.lastNameField.text!,
-														  "companyName": self.companyNameField.text!])
-				{ (error) in
-					if error != nil {
-						print("User data could not be stored due to the following error. \(String(describing: error))")
-					}
-				}
-				print("User data stored.")
-			}
+		if textValid() {
+			
+			Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { authResult, error in
+				if error != nil {
+					print("The user was not created due to an error")
+				} else {
+					let db = Firestore.firestore()
+					db.collection("users").addDocument(data: ["firstName": self.firstNameField.text!,
+															  "lastName": self.lastNameField.text!,
+															  "companyName": self.companyNameField.text!])
+					{ (error) in
+						if error != nil {
+							print("User data could not be stored due to the following error. \(String(describing: error))")
+					}}
+					
+					print("User data stored.")
+			}}
+			
+		} else {
+			displayAlertMessage(messageToDisplay: "Please verify that you typed your information correctly.")
 		}
+		
 	}
 	
-//	func storeUser(_ result: String) {
-//
-//	}
 	
+	func showError(error: String) {
+		//Show Error
+	}
 	
-//	func saveUser() {
-//
-//		guard let user.email = emailField.text, !email.isEmpty else {
-//			print("emailField is empty")
-//            return
-//        }
-//
-//		guard let emailConfirmation = emailConfirmationField.text, !emailConfirmation.isEmpty else {
-//			print("emailConfirmation is empty")
-//            return
-//        }
-//
-//		guard let password = passwordField.text, !password.isEmpty else {
-//			print("passwordField is empty")
-//            return
-//        }
-//
-//		guard let firstName = firstNameField.text, !firstName.isEmpty else {
-//			print("firstName is empty")
-//            return
-//        }
-//
-//		guard let lastName = lastNameField.text, !lastName.isEmpty else {
-//			print("lastName is empty")
-//            return
-//        }
-//
-//		guard let companyName = companyNameField.text, !companyName.isEmpty else {
-//			print("companyName is empty")
-//            return
-//        }
-//
-//		let user = User(context: PersistenceController.container.viewContext)
-//		user.email = email
-//
-//		PersistenceController.save(user)
-//        navigationController?.popViewController(animated: true)
-//    }
+	func saveUser() {
+		let user = User(context: PersistenceController.container.viewContext)
+
+		PersistenceController.save(user)
+		navigationController?.popViewController(animated: true)
+    }
+	
+	func emailValidate() -> Bool {
+		
+		var returnValue: Bool
+		
+		// Email Address Validation
+		
+		if !textFieldEmpty(textField: emailField) && !textFieldEmpty(textField: emailConfirmationField){
+			let email1 = emailField.text
+			let email2 = emailConfirmationField.text
+			
+			if email1 == email2 {
+			
+				let isEmailAddressValid = isValidEmailAddress(emailAddressString: email1!)
+				
+				if isEmailAddressValid
+				{
+					print("Email address is valid")
+					returnValue = true
+				} else {
+					print("Email address is not valid")
+					displayAlertMessage(messageToDisplay: "Email address is not valid")
+					returnValue = false
+				}
+				
+			} else {
+				print("Email fields do not match")
+				displayAlertMessage(messageToDisplay: "The email fields do not match.")
+				returnValue = false
+			}
+			
+		} else {
+			print("emailField is empty")
+			displayAlertMessage(messageToDisplay: "Please verify that you have entered an email.")
+			returnValue = false
+		}
+		
+		return returnValue
+	}
+	
+	func textFieldEmpty(textField: UITextField) -> Bool {
+		guard let text = textField.text,
+			!text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
+			print("emailField is empty")
+			displayAlertMessage(messageToDisplay: "Please verify that you have entered an email.")
+			return true
+		}
+
+		return false
+	}
+	
+	func isValidEmailAddress(emailAddressString: String) -> Bool {
+		   
+		   var returnValue = true
+		   let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
+		   
+		   do {
+			   let regex = try NSRegularExpression(pattern: emailRegEx)
+			   let nsString = emailAddressString as NSString
+			   let results = regex.matches(in: emailAddressString, range: NSRange(location: 0, length: nsString.length))
+			   
+			   if results.count == 0
+			   {
+				   returnValue = false
+			   }
+			   
+		   } catch let error as NSError {
+			   print("invalid regex: \(error.localizedDescription)")
+			   returnValue = false
+		   }
+		   
+		   return  returnValue
+	}
+	
+	func displayAlertMessage(messageToDisplay: String)
+    {
+        let alertController = UIAlertController(title: "Alert", message: messageToDisplay, preferredStyle: .alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+            // Code in this block will trigger when OK button tapped.
+            print("Ok button tapped");
+            
+        }
+        
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true, completion:nil)
+    }
 
 }
