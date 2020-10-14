@@ -198,21 +198,66 @@ class SignUpViewController: UIViewController {
 							print("User data could not be stored due to the following error. \(String(describing: error))")
 					}}
 					
+//					displayAlertMessage(messageToDisplay: "Thanks for signing up, \(self.firstNameField.text!)! Please sign in and verify your email, when you get a chance.")
 					print("User data stored.")
 			}}
 			
 		} else {
-			displayAlertMessage(messageToDisplay: "Please verify that you typed your information correctly.")
+			displayAlertMessage(messageToDisplay: "Please verify that you filled out all fields appropriately.")
 		}
 		
 	}
 	
-	func passwordValid(_ password: String) -> Bool {
+	func textFieldEmpty(textField: UITextField) -> Bool {
+		guard let text = textField.text,
+			!text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
+			return true
+		}
+
+		return false
+	}
 		
-		let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$")
-		return passwordTest.evaluate(with: password)
+	func displayAlertMessage(messageToDisplay: String){
+		let alertController = UIAlertController(title: "Alert", message: messageToDisplay, preferredStyle: .alert)
 		
-		return true
+		let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+			// Code in this block will trigger when OK button tapped.
+			print("Ok button tapped");
+			
+		}
+		
+		alertController.addAction(OKAction)
+		self.present(alertController, animated: true, completion:nil)
+	}
+	
+	func passwordValid() -> Bool {
+		
+		let passwordStandard = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$")
+		
+		if !textFieldEmpty(textField: passwordField) && !textFieldEmpty(textField: passwordConfirmationField) {
+			
+			let password1 = passwordField.text
+			let password2 = passwordConfirmationField.text
+			
+			if password1 == password2 {
+				
+				if passwordStandard.evaluate(with: password1) {
+					return true
+				} else {
+					print("Password is not strong enough")
+					displayAlertMessage(messageToDisplay: "Please ensure that your password has at least 2 uppercase letters, 3 lowercase letters, 2 digits, and 1 special character.")
+					return false
+				}
+			} else {
+				print("Passwords do not match")
+				displayAlertMessage(messageToDisplay: "Password fields do not match.")
+				return false
+			}
+		} else {
+			print("Password fields are empty.")
+			displayAlertMessage(messageToDisplay: "Please fill out the password fields.")
+			return false
+		}
 	}
 	
 	func userInfoValid() -> Bool {
@@ -274,15 +319,6 @@ class SignUpViewController: UIViewController {
 		return returnValue
 	}
 	
-	func textFieldEmpty(textField: UITextField) -> Bool {
-		guard let text = textField.text,
-			!text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
-			return true
-		}
-
-		return false
-	}
-	
 	func isValidEmailAddress(emailAddressString: String) -> Bool {
 		   
 		   var returnValue = true
@@ -305,19 +341,6 @@ class SignUpViewController: UIViewController {
 		   
 		   return  returnValue
 	}
-	
-	func displayAlertMessage(messageToDisplay: String)
-    {
-        let alertController = UIAlertController(title: "Alert", message: messageToDisplay, preferredStyle: .alert)
-        
-        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-            // Code in this block will trigger when OK button tapped.
-            print("Ok button tapped");
-            
-        }
-        
-        alertController.addAction(OKAction)
-        self.present(alertController, animated: true, completion:nil)
-    }
 
 }
+
