@@ -183,7 +183,7 @@ class SignUpViewController: UIViewController {
 	
 	func createUser() {
 		
-		if textValid() {
+		if userInfoValid() && emailValid() && passwordValid() {
 			
 			Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { authResult, error in
 				if error != nil {
@@ -207,9 +207,26 @@ class SignUpViewController: UIViewController {
 		
 	}
 	
+	func passwordValid(_ password: String) -> Bool {
+		
+		let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$")
+		return passwordTest.evaluate(with: password)
+		
+		return true
+	}
 	
-	func showError(error: String) {
-		//Show Error
+	func userInfoValid() -> Bool {
+		var returnValue: Bool
+		
+		if !textFieldEmpty(textField: firstNameField) && !textFieldEmpty(textField: lastNameField) && !textFieldEmpty(textField: companyNameField){
+			returnValue = true
+		} else {
+			print("firstNameField, lastNameField, and/or companyNameField is missing")
+			displayAlertMessage(messageToDisplay: "Please ensure that you have filled out every field.")
+			returnValue = false
+		}
+		
+		return returnValue
 	}
 	
 	func saveUser() {
@@ -219,13 +236,12 @@ class SignUpViewController: UIViewController {
 		navigationController?.popViewController(animated: true)
     }
 	
-	func emailValidate() -> Bool {
+	func emailValid() -> Bool {
 		
 		var returnValue: Bool
 		
-		// Email Address Validation
-		
 		if !textFieldEmpty(textField: emailField) && !textFieldEmpty(textField: emailConfirmationField){
+			
 			let email1 = emailField.text
 			let email2 = emailConfirmationField.text
 			
@@ -261,8 +277,6 @@ class SignUpViewController: UIViewController {
 	func textFieldEmpty(textField: UITextField) -> Bool {
 		guard let text = textField.text,
 			!text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
-			print("emailField is empty")
-			displayAlertMessage(messageToDisplay: "Please verify that you have entered an email.")
 			return true
 		}
 
