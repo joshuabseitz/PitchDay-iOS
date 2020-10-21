@@ -10,6 +10,10 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
+protocol SignUpViewControllerDelegate: class {
+	func emailValid(_ email1: String, _ email2: String) -> Bool
+}
+
 class SignUpViewController: UIViewController {
 
 // MARK: - Properties
@@ -90,6 +94,9 @@ class SignUpViewController: UIViewController {
 	// Footer Label
 	let footerLabelText = "novusclub.org"
 	
+// MARK: - Delgates
+	weak var validDelagate: SignUpViewControllerDelegate?
+	
 // MARK: - IBOutlets
 	@IBOutlet weak var firstNameField: UITextField!
 	@IBOutlet weak var lastNameField: UITextField!
@@ -169,7 +176,7 @@ class SignUpViewController: UIViewController {
 	
 	@IBAction func didTapSignUp(_ sender: Any) {
 		
-		if userInfoValid() && emailValid() && passwordValid() {
+		if userInfoValid() && emailValid(emailField.text!, emailConfirmationField.text!) && passwordValid() {
 			createUser()
 		} else {
 			displayAlertMessage(messageToDisplay: "Please verify that you filled out each field correctly.")
@@ -183,9 +190,11 @@ class SignUpViewController: UIViewController {
 		
 		Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { authResult, error in
 			if error != nil {
-				self.displayAlertMessage(messageToDisplay: "There was an error. Please contact info@novusclub.org for help.")
+				self.displayAlertMessage(messageToDisplay: "There was an error. Please contact info@novusclub.org for help. Error message: \(String(describing: error))")
 				print("The user was not created due to an error")
 			} else {
+				
+				// Storing User Information (firstName, lastName, companyName)
 				let db = Firestore.firestore()
 				db.collection("users").addDocument(data: ["firstName": self.firstNameField.text!,
 														  "lastName": self.lastNameField.text!,
@@ -193,6 +202,14 @@ class SignUpViewController: UIViewController {
 				{ (error) in
 					if error != nil {
 						print("User data could not be stored due to the following error. \(String(describing: error))")
+						
+				// Sending email verification
+				Auth.auth().currentUser?.sendEmailVerification { error in
+					if error != nil {
+						
+					}
+				}
+						
 				}}
 				print("User data stored.")
 				self.displaySignUpSuccessMessage(messageToDisplay: "Thanks for signing up! Please sign in and verify your email, when you get a chance.")
@@ -283,65 +300,6 @@ class SignUpViewController: UIViewController {
 		PersistenceController.save(user)
 		navigationController?.popViewController(animated: true)
     }
-	
-	func emailValid() -> Bool {
-		
-		var returnValue: Bool
-		
-		if !textFieldEmpty(textField: emailField) && !textFieldEmpty(textField: emailConfirmationField){
-			
-			let email1 = emailField.text
-			let email2 = emailConfirmationField.text
-			
-			if ((email1!.elementsEqual(email2!)) == true) {
-				
-				if isValidEmailAddress(emailAddressString: email1!)
-				{
-					print("Email address is valid")
-					returnValue = true
-				} else {
-					print("Email address is not valid")
-					displayAlertMessage(messageToDisplay: "Email address is not valid")
-					returnValue = false
-				}
-				
-			} else {
-				print("Email fields do not match")
-				displayAlertMessage(messageToDisplay: "The email fields do not match.")
-				returnValue = false
-			}
-			
-		} else {
-			print("emailField is empty")
-			displayAlertMessage(messageToDisplay: "Please verify that you have entered an email.")
-			returnValue = false
-		}
-		
-		return returnValue
-	}
-	
-	func isValidEmailAddress(emailAddressString: String) -> Bool {
-		   
-		   var returnValue = true
-		   let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-		   
-		   do {
-			   let regex = try NSRegularExpression(pattern: emailRegEx)
-			   let nsString = emailAddressString as NSString
-			   let results = regex.matches(in: emailAddressString, range: NSRange(location: 0, length: nsString.length))
-			   
-			   if results.count == 0
-			   {
-				   returnValue = false
-			   }
-			   
-		   } catch let error as NSError {
-			   print("invalid regex: \(error.localizedDescription)")
-			   returnValue = false
-		   }
-		   
-		   return  returnValue
-	}
 
 }
 
