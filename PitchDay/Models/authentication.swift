@@ -11,40 +11,6 @@ import Firebase
 import FirebaseAuth
 import FirebaseCore
 
-//extension SignUpViewController: SignUpViewControllerAuthenticationDelegate {
-//	
-//	//MARK: - Create User
-//	func createUser() {
-//		
-//		Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { authResult, error in
-//			if error != nil {
-//				self.displayAlertMessage(messageToDisplay: "There was an error. Please contact info@novusclub.org for help. Error message: \(String(describing: error))")
-//				print("The user was not created due to an error")
-//			} else {
-//				
-//				// Storing User Information (firstName, lastName, companyName)
-//				let db = Firestore.firestore()
-//				db.collection("users").addDocument(data: ["firstName": self.firstNameField.text!,
-//														  "lastName": self.lastNameField.text!,
-//														  "companyName": self.companyNameField.text!])
-//				{ (error) in
-//					if error != nil {
-//						print("User data could not be stored due to the following error. \(String(describing: error))")
-//						
-//				// Sending email verification
-//				Auth.auth().currentUser?.sendEmailVerification { error in
-//					if error != nil {
-//						
-//					}
-//				}
-//						
-//				}}
-//				print("User data stored.")
-//				self.displaySignUpSuccessMessage(messageToDisplay: "Thanks for signing up! Please sign in and verify your email, when you get a chance.")
-//		}}
-//	}
-//}
-
 extension PasswordResetViewController: PasswordResetViewControllerDelegate {
 	
 	//MARK: - Password Reset
