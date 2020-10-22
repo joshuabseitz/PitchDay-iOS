@@ -14,7 +14,7 @@ import FirebaseAuth
 // MARK: - Protocols
 
 protocol SignUpViewControllerValidationDelegate: class {
-//	func emailValid(_ email1: String, _ email2: String) -> Bool
+	//	func emailValid(_ email1: String, _ email2: String) -> Bool
 	func passwordValid() -> Bool
 	func userInfoValid() -> Bool
 }
@@ -24,8 +24,8 @@ protocol SignUpViewControllerAuthenticationDelegate: class {
 }
 
 class SignUpViewController: UIViewController {
-
-// MARK: - Properties
+	
+	// MARK: - Properties
 	
 	// TODO: logo UIImageView
 	
@@ -94,7 +94,7 @@ class SignUpViewController: UIViewController {
 	
 	// passwordFieldConfirmation Properties
 	let passwordConfirmationPlaceholder = NSAttributedString(string: "Confirm Password",
-												  attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+															 attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
 	let passwordConfirmationFieldCornerRadius: CGFloat = 5.0
 	let passwordConfirmationFieldButtonBorderColor = UIColor.white.cgColor
 	let passwordConfirmationFieldBorderWidth: CGFloat = 0.75
@@ -103,14 +103,14 @@ class SignUpViewController: UIViewController {
 	// Footer Label
 	let footerLabelText = "novusclub.org"
 	
-// MARK: - Delegates
+	// MARK: - Delegates
 	weak var validDelagate: SignUpViewControllerValidationDelegate?
 	weak var authDelegate: SignUpViewControllerAuthenticationDelegate?
 	
-// MARK: - Custom Styling
+	// MARK: - Custom Styling
 	var customTextField = CustomTextField()
 	
-// MARK: - IBOutlets
+	// MARK: - IBOutlets
 	@IBOutlet weak var firstNameField: CustomTextField!
 	@IBOutlet weak var lastNameField: CustomTextField!
 	@IBOutlet weak var companyNameField: CustomTextField!
@@ -122,10 +122,10 @@ class SignUpViewController: UIViewController {
 	@IBOutlet weak var logo: UIImageView!
 	@IBOutlet weak var footerLabel: UILabel!
 	
-// MARK: - View Lifecycles
+	// MARK: - View Lifecycles
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		
 		firstNameField.attributedPlaceholder = firstNameFieldPlaceholder
 		firstNameField.layer.borderColor = standardFieldButtonBorderColor
@@ -133,59 +133,59 @@ class SignUpViewController: UIViewController {
 		firstNameField.layer.cornerRadius = standardFieldCornerRadius
 		firstNameField.leftView = standardFieldPaddingView
 		firstNameField.leftViewMode = .always
-
+		
 		lastNameField.attributedPlaceholder = lastNameFieldPlaceholder
 		lastNameField.layer.borderColor = lastNameFieldButtonBorderColor
 		lastNameField.layer.borderWidth = lastNameFieldBorderWidth
 		lastNameField.layer.cornerRadius = lastNameFieldCornerRadius
 		lastNameField.leftView = lastNameFieldPaddingView
 		lastNameField.leftViewMode = .always
-
+		
 		companyNameField.attributedPlaceholder = companyNameFieldPlaceholder
 		companyNameField.layer.borderColor = companyNameFieldButtonBorderColor
 		companyNameField.layer.borderWidth = companyNameFieldBorderWidth
 		companyNameField.layer.cornerRadius = companyNameFieldCornerRadius
 		companyNameField.leftView = companyNameFieldPaddingView
 		companyNameField.leftViewMode = .always
-
+		
 		emailField.attributedPlaceholder = emailPlaceholder
 		emailField.layer.borderColor = emailFieldButtonBorderColor
 		emailField.layer.borderWidth = emailFieldBorderWidth
 		emailField.layer.cornerRadius = emailFieldCornerRadius
 		emailField.leftView = emailFieldPaddingView
 		emailField.leftViewMode = .always
-
-        emailConfirmationField.attributedPlaceholder = emailConfirmationFieldPlaceholder
+		
+		emailConfirmationField.attributedPlaceholder = emailConfirmationFieldPlaceholder
 		emailConfirmationField.layer.borderColor = emailConfirmationFieldButtonBorderColor
 		emailConfirmationField.layer.borderWidth = emailConfirmationFieldBorderWidth
 		emailConfirmationField.layer.cornerRadius = emailConfirmationFieldCornerRadius
 		emailConfirmationField.leftView = emailConfirmationFieldPaddingView
 		emailConfirmationField.leftViewMode = .always
-
+		
 		passwordField.attributedPlaceholder = passwordPlaceholder
 		passwordField.layer.borderColor = passwordFieldButtonBorderColor
 		passwordField.layer.borderWidth = passwordFieldBorderWidth
 		passwordField.layer.cornerRadius = passwordFieldCornerRadius
 		passwordField.leftView = passwordFieldPaddingView
 		passwordField.leftViewMode = .always
-
+		
 		passwordConfirmationField.attributedPlaceholder = passwordConfirmationPlaceholder
 		passwordConfirmationField.layer.borderColor = passwordConfirmationFieldButtonBorderColor
 		passwordConfirmationField.layer.borderWidth = passwordConfirmationFieldBorderWidth
 		passwordConfirmationField.layer.cornerRadius = passwordConfirmationFieldCornerRadius
 		passwordConfirmationField.leftView = passwordConfirmationFieldPaddingView
 		passwordConfirmationField.leftViewMode = .always
-
+		
 		signUpButton.backgroundColor = signUpButtonBackgroundColor
 		signUpButton.layer.cornerRadius = signUpButtonCornerRadius
 		signUpButton.setTitle(signUpButtonTitle, for: .normal)
-
+		
 		footerLabel.text = footerLabelText
 		
 		self.title = viewTitle
-    }
-    
-// MARK: - IBActions
+	}
+	
+	// MARK: - IBActions
 	
 	@IBAction func didTapSignUp(_ sender: Any) {
 		
@@ -196,10 +196,10 @@ class SignUpViewController: UIViewController {
 		} else {
 			
 			let newUser: NewUser = 	NewUser(fName: firstNameField.text!,
-									lName: lastNameField.text!,
-									companyName: companyNameField.text!,
-									email: emailField.text!,
-									password: passwordField.text!)
+											   lName: lastNameField.text!,
+											   companyName: companyNameField.text!,
+											   email: emailField.text!,
+											   password: passwordField.text!)
 			
 			if emailFieldsMatch() && passwordFieldsMatch() {
 				
@@ -223,8 +223,8 @@ class SignUpViewController: UIViewController {
 		
 	}
 	
-
-// MARK: - FUNCTIONS
+	
+	// MARK: - FUNCTIONS
 	
 	func emailFieldsMatch() -> Bool {
 		
@@ -255,12 +255,12 @@ class SignUpViewController: UIViewController {
 	func emptyFields() -> Bool {
 		
 		let signUpFields: [(name: String, value: CustomTextField)] = 	[(name: "First name field", value: firstNameField),
-																		(name: "Last name field", value: lastNameField),
-																		(name: "Company name field", value: companyNameField),
-																		(name: "Email address field", emailField),
-																		(name: "Email confirmation address field", value: emailConfirmationField),
-																		(name: "Password field", passwordField),
-																		(name: "Password confirmation", value: passwordConfirmationField)]
+																		  (name: "Last name field", value: lastNameField),
+																		  (name: "Company name field", value: companyNameField),
+																		  (name: "Email address field", emailField),
+																		  (name: "Email confirmation address field", value: emailConfirmationField),
+																		  (name: "Password field", passwordField),
+																		  (name: "Password confirmation", value: passwordConfirmationField)]
 		
 		for (name, value) in signUpFields {
 			if textFieldEmpty(textField: value) {
@@ -274,9 +274,9 @@ class SignUpViewController: UIViewController {
 	func textFieldEmpty(textField: CustomTextField) -> Bool {
 		guard let text = textField.text,
 			!text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
-			return true
+				return true
 		}
-
+		
 		return false
 	}
 	
@@ -292,7 +292,7 @@ class SignUpViewController: UIViewController {
 		alertController.addAction(OKAction)
 		self.present(alertController, animated: true, completion:nil)
 	}
-		
+	
 	func displayAlertMessage(messageToDisplay: String){
 		let alertController = UIAlertController(title: "Alert", message: messageToDisplay, preferredStyle: .alert)
 		
@@ -304,6 +304,6 @@ class SignUpViewController: UIViewController {
 		alertController.addAction(OKAction)
 		self.present(alertController, animated: true, completion:nil)
 	}
-
+	
 }
 
