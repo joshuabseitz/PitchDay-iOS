@@ -78,7 +78,7 @@ class PasswordResetViewController: UIViewController {
 				
 				UserAuth.resetPassword(resetUser)
 				displayAlertMessage(messageToDisplay: "If there is an account with this email address, a password recovery link has been sent.")
-					
+				
 			} else {
 				displayAlertMessage(messageToDisplay: "Please enter a valid email address.")
 			}

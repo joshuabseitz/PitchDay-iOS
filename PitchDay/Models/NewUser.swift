@@ -97,7 +97,7 @@ struct NewUser {
 	func isPasswordValid() -> Bool {
 		
 		let passwordStandard = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$")
-
+		
 		if passwordStandard.evaluate(with: password) {
 			print("Password strong enough")
 			return true

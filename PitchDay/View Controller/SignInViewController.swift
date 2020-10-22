@@ -11,7 +11,7 @@ import UIKit
 
 class SignInViewController: UIViewController {
 	
-//	MARK: - Properties
+	//	MARK: - Properties
 	
 	// TODO: logo UIImageView
 	
@@ -43,7 +43,7 @@ class SignInViewController: UIViewController {
 	// Footer Label
 	let footerLabelText = "novusclub.org"
 	
-//	MARK: - IBOUTLETS
+	//	MARK: - IBOUTLETS
 	@IBOutlet weak var emailField: UITextField!
 	@IBOutlet weak var passwordField: UITextField!
 	@IBOutlet weak var loginButton: UIButton!
@@ -51,7 +51,7 @@ class SignInViewController: UIViewController {
 	@IBOutlet weak var footerLabel: UILabel!
 	@IBOutlet weak var signUpButton: UIButton!
 	
-//	MARK: - View Lifecycles
+	//	MARK: - View Lifecycles
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -78,19 +78,19 @@ class SignInViewController: UIViewController {
 		
 	}
 	
-// MARK - IBAction
+	// MARK - IBAction
 	
 	@IBAction func didTapLogin(_ sender: Any) {
 		
 		guard let email = emailField.text, !email.isEmpty else {
 			print("emailField is empty")
-            return
-        }
+			return
+		}
 		
 		guard let password = passwordField.text, !password.isEmpty else {
 			print("passwordField is empty")
-            return
-        }
+			return
+		}
 	}
 	
 	@IBAction func didTapSignUp(_ sender: Any) {
