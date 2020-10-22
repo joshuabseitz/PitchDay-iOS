@@ -14,13 +14,13 @@ import FirebaseAuth
 // MARK: - Protocols
 
 protocol SignUpViewControllerValidationDelegate: class {
-	func emailValid(_ email1: String, _ email2: String) -> Bool
+//	func emailValid(_ email1: String, _ email2: String) -> Bool
 	func passwordValid() -> Bool
 	func userInfoValid() -> Bool
 }
 
 protocol SignUpViewControllerAuthenticationDelegate: class {
-	
+	func createUser()
 }
 
 class SignUpViewController: UIViewController {
@@ -103,18 +103,21 @@ class SignUpViewController: UIViewController {
 	// Footer Label
 	let footerLabelText = "novusclub.org"
 	
-// MARK: - Delgates
+// MARK: - Delegates
 	weak var validDelagate: SignUpViewControllerValidationDelegate?
 	weak var authDelegate: SignUpViewControllerAuthenticationDelegate?
 	
+// MARK: - Custom Styling
+	var customTextField = CustomTextField()
+	
 // MARK: - IBOutlets
-	@IBOutlet weak var firstNameField: UITextField!
-	@IBOutlet weak var lastNameField: UITextField!
-	@IBOutlet weak var companyNameField: UITextField!
-	@IBOutlet weak var emailField: UITextField!
-	@IBOutlet weak var emailConfirmationField: UITextField!
-	@IBOutlet weak var passwordField: UITextField!
-	@IBOutlet weak var passwordConfirmationField: UITextField!
+	@IBOutlet weak var firstNameField: CustomTextField!
+	@IBOutlet weak var lastNameField: CustomTextField!
+	@IBOutlet weak var companyNameField: CustomTextField!
+	@IBOutlet weak var emailField: CustomTextField!
+	@IBOutlet weak var emailConfirmationField: CustomTextField!
+	@IBOutlet weak var passwordField: CustomTextField!
+	@IBOutlet weak var passwordConfirmationField: CustomTextField!
 	@IBOutlet weak var signUpButton: UIButton!
 	@IBOutlet weak var logo: UIImageView!
 	@IBOutlet weak var footerLabel: UILabel!
@@ -186,15 +189,96 @@ class SignUpViewController: UIViewController {
 	
 	@IBAction func didTapSignUp(_ sender: Any) {
 		
-		if userInfoValid() && emailValid(emailField.text!, emailConfirmationField.text!) && passwordValid() {
-			createUser()
+		if emptyFields() {
+			
+			displayAlertMessage(messageToDisplay: "Please make sure you have filled out all fields.")
+			
 		} else {
-			displayAlertMessage(messageToDisplay: "Please verify that you filled out each field correctly.")
+			
+			let newUser: NewUser = 	NewUser(fName: firstNameField.text!,
+									lName: lastNameField.text!,
+									companyName: companyNameField.text!,
+									email: emailField.text!,
+									password: passwordField.text!)
+			
+			if emailFieldsMatch() && passwordFieldsMatch() {
+				
+				if !newUser.isFNameValid() {
+					displayAlertMessage(messageToDisplay: "First name field is not valid.")
+				} else if !newUser.isLNameValid() {
+					displayAlertMessage(messageToDisplay: "Last name field is not valid.")
+				} else if !newUser.isCompanyNameValid() {
+					displayAlertMessage(messageToDisplay: "Company name field is not valid.")
+				} else if !newUser.isEmailValid() {
+					displayAlertMessage(messageToDisplay: "Please enter a valid email.")
+				} else if !newUser.isPasswordValid() {
+					displayAlertMessage(messageToDisplay: "Please ensure that your password has at least 2 uppercase letters, 3 lowercase letters, 2 digits, and 1 special character.")
+				} else {
+					createUser()
+				}
+				
+			}
+			
 		}
+		
 	}
 	
 
 // MARK: - FUNCTIONS
+	
+	func emailFieldsMatch() -> Bool {
+		
+		if emailField.text == emailConfirmationField.text {
+			print("Email fields match.")
+			return true
+		} else {
+			displayAlertMessage(messageToDisplay: "Please make sure that your email fields match")
+			print("Email fields do not match.")
+			return false
+		}
+		
+	}
+	
+	func passwordFieldsMatch() -> Bool {
+		
+		if passwordField.text == passwordConfirmationField.text {
+			print("Password fields match.")
+			return true
+		} else {
+			print("Password fields do not match.")
+			displayAlertMessage(messageToDisplay: "Please make sure that your password fields match")
+			return false
+		}
+		
+	}
+	
+	func emptyFields() -> Bool {
+		
+		let signUpFields: [(name: String, value: CustomTextField)] = 	[(name: "First name field", value: firstNameField),
+																		(name: "Last name field", value: lastNameField),
+																		(name: "Company name field", value: companyNameField),
+																		(name: "Email address field", emailField),
+																		(name: "Email confirmation address field", value: emailConfirmationField),
+																		(name: "Password field", passwordField),
+																		(name: "Password confirmation", value: passwordConfirmationField)]
+		
+		for (name, value) in signUpFields {
+			if textFieldEmpty(textField: value) {
+				print("\(name) is empty.")
+				return true
+			}
+		}
+		return false
+	}
+	
+	func textFieldEmpty(textField: CustomTextField) -> Bool {
+		guard let text = textField.text,
+			!text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
+			return true
+		}
+
+		return false
+	}
 	
 	func displaySignUpSuccessMessage(messageToDisplay: String){
 		let alertController = UIAlertController(title: "Done", message: messageToDisplay, preferredStyle: .alert)
@@ -207,15 +291,6 @@ class SignUpViewController: UIViewController {
 		
 		alertController.addAction(OKAction)
 		self.present(alertController, animated: true, completion:nil)
-	}
-	
-	func textFieldEmpty(textField: UITextField) -> Bool {
-		guard let text = textField.text,
-			!text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
-			return true
-		}
-
-		return false
 	}
 		
 	func displayAlertMessage(messageToDisplay: String){

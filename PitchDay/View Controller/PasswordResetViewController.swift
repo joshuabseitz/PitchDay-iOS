@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import Firebase
+
+
+protocol PasswordResetViewControllerDelegate: class {
+	func resetPassword(_ email: String) -> Bool
+}
 
 class PasswordResetViewController: UIViewController {
 	
 	//MARK: - IBOutlets
-	@IBOutlet weak var emailField: UITextField!
+	@IBOutlet weak var emailField: CustomTextField!
 	@IBOutlet weak var resetButton: UIButton!
 	@IBOutlet weak var footerLabel: UILabel!
 	
@@ -22,7 +28,7 @@ class PasswordResetViewController: UIViewController {
 	
 	// Email Field Properties
 	let emailFieldPlaceholder = NSAttributedString(string: "Email Address",
-												  attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+												   attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
 	let emailFieldCornerRadius: CGFloat = 5.0
 	let emailFieldButtonBorderColor = UIColor.white.cgColor
 	let emailFieldBorderWidth: CGFloat = 0.75
@@ -37,8 +43,8 @@ class PasswordResetViewController: UIViewController {
 	let footerLabelText = "novusclub.org"
 	
 	//MARK: - View Lifecycles
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		
 		// Email Field Setup
 		emailField.attributedPlaceholder = emailFieldPlaceholder
@@ -47,17 +53,46 @@ class PasswordResetViewController: UIViewController {
 		emailField.layer.cornerRadius = emailFieldCornerRadius
 		emailField.leftView = emailFieldPaddingView
 		emailField.leftViewMode = .always
-
+		
 		// Reset Button Setup
 		resetButton.backgroundColor = resetButtonBorderColor
 		resetButton.layer.cornerRadius = resetButtonCornerRadius
 		resetButton.setTitle(resetButtonTitle, for: .normal)
-
+		
 		// Footer Label Setup
 		footerLabel.text = footerLabelText
 		
 		// Title (Nav Bar) Setup
 		self.title = viewTitle
-    }
-
+		
+	}
+	
+	//MARK: - IBActions
+	@IBAction func didTapSendResetLink(_ sender: UIButton) {
+		
+		if !textFieldEmpty(textField: emailField){
+			
+			let email = emailField.text
+			
+			if resetPassword(email!) {
+				print("Reset link sent")
+			} else {
+				print("Reset link not sent")
+			}
+			
+		} else {
+			print("No text in emailField")
+		}
+		
+	}
+	
+	func textFieldEmpty(textField: CustomTextField) -> Bool {
+		guard let text = textField.text,
+			!text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
+				return true
+		}
+		
+		return false
+	}
+	
 }
