@@ -16,6 +16,7 @@ struct NewUser {
 	var email: String
 	var password: String
 	
+	// Sign up init
 	init(fName: String, lName: String, companyName: String, email: String, password: String) {
 		
 		self.fName			= fName
@@ -26,12 +27,22 @@ struct NewUser {
 		
 	}
 	
+	// Sign in init
+	init(email: String, password: String) {
+		self.fName			= ""
+		self.lName			= ""
+		self.companyName	= ""
+		self.email			= email
+		self.password		= password
+	}
+	
+	// Reset password init
 	init(email: String) {
 		self.fName			= ""
 		self.lName			= ""
 		self.companyName	= ""
 		self.email			= email
-		self.password 		= ""
+		self.password		= ""
 	}
 	
 	func isFNameValid() -> Bool {

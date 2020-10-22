@@ -173,45 +173,45 @@ class SignUpViewController: UIViewController {
 	
 	// MARK: - IBActions
 	
-	@IBAction func didTapSignUp(_ sender: Any) {
-		
-		if emptyFields() {
-			
-			displayAlertMessage(messageToDisplay: "Please make sure you have filled out all fields.")
-			
-		} else {
-			
-			let newUser: NewUser = 	NewUser(fName: firstNameField.text!,
-											   lName: lastNameField.text!,
-											   companyName: companyNameField.text!,
-											   email: emailField.text!,
-											   password: passwordField.text!)
-			
-			if emailFieldsMatch() && passwordFieldsMatch() {
-				
-				if !newUser.isFNameValid() {
-					displayAlertMessage(messageToDisplay: "First name field is not valid.")
-				} else if !newUser.isLNameValid() {
-					displayAlertMessage(messageToDisplay: "Last name field is not valid.")
-				} else if !newUser.isCompanyNameValid() {
-					displayAlertMessage(messageToDisplay: "Company name field is not valid.")
-				} else if !newUser.isEmailValid() {
-					displayAlertMessage(messageToDisplay: "Please enter a valid email.")
-				} else if !newUser.isPasswordValid() {
-					displayAlertMessage(messageToDisplay: "Please ensure that your password has at least 2 uppercase letters, 3 lowercase letters, 2 digits, and 1 special character.")
-				} else {
-					if UserAuth.createUser(newUser) {
-						displaySignUpSuccessMessage(messageToDisplay: "Success! Thank for signing up – please sign in now.")
-					} else {
-						displayAlertMessage(messageToDisplay: "We could not create you account – please contact info@novusclub.org for help.")
-					}
-				}
-				
-			}
-			
-		}
-		
-	}
+//	@IBAction func didTapSignUp(_ sender: Any) {
+//		
+//		if emptyFields() {
+//			
+//			displayAlertMessage(messageToDisplay: "Please make sure you have filled out all fields.")
+//			
+//		} else {
+//			
+//			let newUser: NewUser = 	NewUser(fName: firstNameField.text!,
+//											   lName: lastNameField.text!,
+//											   companyName: companyNameField.text!,
+//											   email: emailField.text!,
+//											   password: passwordField.text!)
+//			
+//			if emailFieldsMatch() && passwordFieldsMatch() {
+//				
+//				if !newUser.isFNameValid() {
+//					displayAlertMessage(messageToDisplay: "First name field is not valid.")
+//				} else if !newUser.isLNameValid() {
+//					displayAlertMessage(messageToDisplay: "Last name field is not valid.")
+//				} else if !newUser.isCompanyNameValid() {
+//					displayAlertMessage(messageToDisplay: "Company name field is not valid.")
+//				} else if !newUser.isEmailValid() {
+//					displayAlertMessage(messageToDisplay: "Please enter a valid email.")
+//				} else if !newUser.isPasswordValid() {
+//					displayAlertMessage(messageToDisplay: "Please ensure that your password has at least 2 uppercase letters, 3 lowercase letters, 2 digits, and 1 special character.")
+//				} else {
+//					if UserAuth.createUser(newUser) {
+//						displaySignUpSuccessMessage(messageToDisplay: "Success! Thank for signing up – please sign in now.")
+//					} else {
+//						displayAlertMessage(messageToDisplay: "We could not create you account – please contact info@novusclub.org for help.")
+//					}
+//				}
+//				
+//			}
+//			
+//		}
+//		
+//	}
 	
 	
 	// MARK: - FUNCTIONS

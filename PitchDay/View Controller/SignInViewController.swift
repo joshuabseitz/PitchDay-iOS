@@ -82,15 +82,37 @@ class SignInViewController: UIViewController {
 	
 	@IBAction func didTapLogin(_ sender: Any) {
 		
-		guard let email = emailField.text, !email.isEmpty else {
-			print("emailField is empty")
-			return
+		if emptyFields() {
+			
+			displayAlertMessage(messageToDisplay: "Please make sure you have filled out all fields.")
+			
+		} else {
+			
+			let newUser: NewUser = 	NewUser(fName: firstNameField.text!,
+											   lName: lastNameField.text!,
+											   companyName: companyNameField.text!,
+											   email: emailField.text!,
+											   password: passwordField.text!)
+			
+			if passwordFieldsMatch() {
+				
+				if !newUser.isEmailValid() {
+					displayAlertMessage(messageToDisplay: "Please enter a valid email.")
+				} else if !newUser.isPasswordValid() {
+					displayAlertMessage(messageToDisplay: "Please ensure that your password has at least 2 uppercase letters, 3 lowercase letters, 2 digits, and 1 special character.")
+				} else {
+					
+					if UserAuth.createUser(newUser) {
+						displaySignUpSuccessMessage(messageToDisplay: "Success! Thank for signing up – please sign in now.")
+					} else {
+						displayAlertMessage(messageToDisplay: "We could not create you account – please contact info@novusclub.org for help.")
+					}
+				}
+				
+			}
+			
 		}
 		
-		guard let password = passwordField.text, !password.isEmpty else {
-			print("passwordField is empty")
-			return
-		}
 	}
 	
 	@IBAction func didTapSignUp(_ sender: Any) {
