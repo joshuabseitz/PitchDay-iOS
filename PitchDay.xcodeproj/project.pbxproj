@@ -12,7 +12,6 @@
 		570BDF382534E31600E1EE5A /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BDF372534E31600E1EE5A /* PersistenceController.swift */; };
 		570BDF3C253500CC00E1EE5A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 570BDF3B253500CC00E1EE5A /* GoogleService-Info.plist */; };
 		57399DFC253782F0009706DF /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57399DFB253782F0009706DF /* PasswordResetViewController.swift */; };
-		5770604F253FC14600367FED /* authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5770604E253FC14600367FED /* authentication.swift */; };
 		57706051253FC69A00367FED /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57706050253FC69A00367FED /* CustomTextField.swift */; };
 		577060572541146800367FED /* NewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577060562541146800367FED /* NewUser.swift */; };
 		5770605925413B0A00367FED /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5770605825413B0A00367FED /* UserAuth.swift */; };
@@ -32,7 +31,6 @@
 		570BDF372534E31600E1EE5A /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		570BDF3B253500CC00E1EE5A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		57399DFB253782F0009706DF /* PasswordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
-		5770604E253FC14600367FED /* authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authentication.swift; sourceTree = "<group>"; };
 		57706050253FC69A00367FED /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		577060562541146800367FED /* NewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUser.swift; sourceTree = "<group>"; };
 		5770605825413B0A00367FED /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 			children = (
 				5796F4E22533E65400EDF51D /* User.xcdatamodeld */,
 				570BDF372534E31600E1EE5A /* PersistenceController.swift */,
-				5770604E253FC14600367FED /* authentication.swift */,
 				577060562541146800367FED /* NewUser.swift */,
 				5770605825413B0A00367FED /* UserAuth.swift */,
 			);
@@ -267,7 +264,6 @@
 				5796F4E42533E65400EDF51D /* User.xcdatamodeld in Sources */,
 				570BDF382534E31600E1EE5A /* PersistenceController.swift in Sources */,
 				577060572541146800367FED /* NewUser.swift in Sources */,
-				5770604F253FC14600367FED /* authentication.swift in Sources */,
 				5770605925413B0A00367FED /* UserAuth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -72,12 +72,15 @@ class PasswordResetViewController: UIViewController {
 		
 		if !textFieldEmpty(textField: emailField){
 			
-			let email = emailField.text
+			let resetUser: NewUser = NewUser(email: emailField.text!)
 			
-			if resetPassword(email!) {
-				print("Reset link sent")
+			if resetUser.isEmailValid(){
+				
+				UserAuth.resetPassword(resetUser)
+				displayAlertMessage(messageToDisplay: "If there is an account with this email address, a password recovery link has been sent.")
+					
 			} else {
-				print("Reset link not sent")
+				displayAlertMessage(messageToDisplay: "Please enter a valid email address.")
 			}
 			
 		} else {
@@ -93,6 +96,19 @@ class PasswordResetViewController: UIViewController {
 		}
 		
 		return false
+	}
+	
+	func displayAlertMessage(messageToDisplay: String) {
+		
+		let alertController = UIAlertController(title: "Alert", message: messageToDisplay, preferredStyle: .alert)
+		
+		let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+			print("Ok button tapped");
+			
+		}
+		
+		alertController.addAction(OKAction)
+		self.present(alertController, animated: true, completion:nil)
 	}
 	
 }

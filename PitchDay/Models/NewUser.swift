@@ -26,6 +26,14 @@ struct NewUser {
 		
 	}
 	
+	init(email: String) {
+		self.fName			= ""
+		self.lName			= ""
+		self.companyName	= ""
+		self.email			= email
+		self.password 		= ""
+	}
+	
 	func isFNameValid() -> Bool {
 		
 		// Length be 100 characters max and 1 characters minimum, you can always modify.

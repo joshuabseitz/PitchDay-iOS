@@ -12,6 +12,8 @@ import FirebaseAuth
 
 struct UserAuth {
 	
+	
+	// MARK: - Create new user and store in firebase
 	static func createUser(_ user: NewUser) -> Bool {
 		
 		var returnValue: Bool = false
@@ -41,5 +43,22 @@ struct UserAuth {
 		return returnValue
 		
 	}
+	
+	//MARK: - Password Reset
+	static func resetPassword(_ resetUser: NewUser) {
+		
+		Auth.auth().sendPasswordReset(withEmail: resetUser.email) { (error) in
+			
+			if let error = error {
+				print("Password reset link was not sent \(String(describing: error))")
+			} else {
+				print("Successfully sent password reset link")
+			}
+			
+			
+		}
+	}
+	
+	
 	
 }
