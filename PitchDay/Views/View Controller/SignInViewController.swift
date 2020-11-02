@@ -104,7 +104,8 @@ class SignInViewController: UIViewController {
 						self.displayAlertMessage(messageToDisplay: "There was an error signing you in: \(String(describing: error))")
 					} else {
 						print("Successfully signed in the user.")
-						self.displayAlertMessage(messageToDisplay: "You're logged in.")
+						self.performSegue(withIdentifier: "SegueHome", sender: nil)
+//						self.displayAlertMessage(messageToDisplay: "You're logged in.")
 					}
 				}
 			}

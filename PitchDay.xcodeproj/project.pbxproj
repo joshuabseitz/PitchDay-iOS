@@ -12,9 +12,13 @@
 		570BDF382534E31600E1EE5A /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BDF372534E31600E1EE5A /* PersistenceController.swift */; };
 		570BDF3C253500CC00E1EE5A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 570BDF3B253500CC00E1EE5A /* GoogleService-Info.plist */; };
 		57399DFC253782F0009706DF /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57399DFB253782F0009706DF /* PasswordResetViewController.swift */; };
+		576BA3C125508040001CB06C /* StudentEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576BA3BF25508040001CB06C /* StudentEntryTableViewCell.swift */; };
+		576BA3C225508040001CB06C /* StudentEntryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 576BA3C025508040001CB06C /* StudentEntryTableViewCell.xib */; };
 		57706051253FC69A00367FED /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57706050253FC69A00367FED /* CustomTextField.swift */; };
 		577060572541146800367FED /* NewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577060562541146800367FED /* NewUser.swift */; };
 		5770605925413B0A00367FED /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5770605825413B0A00367FED /* UserAuth.swift */; };
+		578C4D8D25435C0300DD5C11 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578C4D8C25435C0300DD5C11 /* HomeViewController.swift */; };
+		578C4D8F2543723600DD5C11 /* Judge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 578C4D8E2543723600DD5C11 /* Judge.storyboard */; };
 		5796F4DA2533E65400EDF51D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796F4D92533E65400EDF51D /* AppDelegate.swift */; };
 		5796F4DC2533E65400EDF51D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796F4DB2533E65400EDF51D /* SceneDelegate.swift */; };
 		5796F4DE2533E65400EDF51D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796F4DD2533E65400EDF51D /* SignInViewController.swift */; };
@@ -31,9 +35,13 @@
 		570BDF372534E31600E1EE5A /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		570BDF3B253500CC00E1EE5A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		57399DFB253782F0009706DF /* PasswordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
+		576BA3BF25508040001CB06C /* StudentEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentEntryTableViewCell.swift; sourceTree = "<group>"; };
+		576BA3C025508040001CB06C /* StudentEntryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StudentEntryTableViewCell.xib; sourceTree = "<group>"; };
 		57706050253FC69A00367FED /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		577060562541146800367FED /* NewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUser.swift; sourceTree = "<group>"; };
 		5770605825413B0A00367FED /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
+		578C4D8C25435C0300DD5C11 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		578C4D8E2543723600DD5C11 /* Judge.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Judge.storyboard; sourceTree = "<group>"; };
 		5796F4D62533E65400EDF51D /* PitchDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5796F4D92533E65400EDF51D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5796F4DB2533E65400EDF51D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +66,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		576BA3BE25507D59001CB06C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5796F4F72534C08500EDF51D /* View Controller */,
+				5796F4F62534C07C00EDF51D /* Storyboard */,
+				576BA3BF25508040001CB06C /* StudentEntryTableViewCell.swift */,
+				576BA3C025508040001CB06C /* StudentEntryTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		5796F4CD2533E65300EDF51D = {
 			isa = PBXGroup;
 			children = (
@@ -82,8 +101,7 @@
 			children = (
 				5796F4D92533E65400EDF51D /* AppDelegate.swift */,
 				5796F4DB2533E65400EDF51D /* SceneDelegate.swift */,
-				5796F4F72534C08500EDF51D /* View Controller */,
-				5796F4F62534C07C00EDF51D /* Storyboard */,
+				576BA3BE25507D59001CB06C /* Views */,
 				5796F4F82534C0A400EDF51D /* Models */,
 				5796F4EA2533E65600EDF51D /* Info.plist */,
 				570BDF3B253500CC00E1EE5A /* GoogleService-Info.plist */,
@@ -97,6 +115,7 @@
 			children = (
 				5796F4DF2533E65400EDF51D /* Main.storyboard */,
 				5796F4E72533E65600EDF51D /* LaunchScreen.storyboard */,
+				578C4D8E2543723600DD5C11 /* Judge.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -107,6 +126,7 @@
 				5796F4DD2533E65400EDF51D /* SignInViewController.swift */,
 				570BDF352534D4C200E1EE5A /* SignUpViewController.swift */,
 				57399DFB253782F0009706DF /* PasswordResetViewController.swift */,
+				578C4D8C25435C0300DD5C11 /* HomeViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -200,6 +220,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5796F4E92533E65600EDF51D /* LaunchScreen.storyboard in Resources */,
+				578C4D8F2543723600DD5C11 /* Judge.storyboard in Resources */,
+				576BA3C225508040001CB06C /* StudentEntryTableViewCell.xib in Resources */,
 				570BDF3C253500CC00E1EE5A /* GoogleService-Info.plist in Resources */,
 				5796F4E62533E65600EDF51D /* Assets.xcassets in Resources */,
 				5796F4E12533E65400EDF51D /* Main.storyboard in Resources */,
@@ -261,7 +283,9 @@
 				5796F4DA2533E65400EDF51D /* AppDelegate.swift in Sources */,
 				57706051253FC69A00367FED /* CustomTextField.swift in Sources */,
 				5796F4DC2533E65400EDF51D /* SceneDelegate.swift in Sources */,
+				576BA3C125508040001CB06C /* StudentEntryTableViewCell.swift in Sources */,
 				5796F4E42533E65400EDF51D /* User.xcdatamodeld in Sources */,
+				578C4D8D25435C0300DD5C11 /* HomeViewController.swift in Sources */,
 				570BDF382534E31600E1EE5A /* PersistenceController.swift in Sources */,
 				577060572541146800367FED /* NewUser.swift in Sources */,
 				5770605925413B0A00367FED /* UserAuth.swift in Sources */,
