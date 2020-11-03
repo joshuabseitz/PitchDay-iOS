@@ -11,4 +11,4 @@ Email Match | Email Regex | Password Match | Password Regex
 
 Password Reset | Email Sign-in
 :--:|:--:
-<img src="/Demo/passwordReset.gif" width="122.22" height="252.63"/> | <img src="/Demo/signin.gif" width="122.22" height="252.63"/>
+<img src="/Demo/resetPassword.gif" width="122.22" height="252.63"/> | <img src="/Demo/signin.gif" width="122.22" height="252.63"/>
