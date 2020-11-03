@@ -1,5 +1,12 @@
 # PitchDay
 This is the companion app for the Novus Club web portal. It allows judges to sign into the application, view student submissions, and assign both comments and scores as they are reviewing student submissions.
 
-# Installation
-This app can be downloaded on the app store for free. Users who sign up through the app will be unverified and therefore unable to view and score student entries until an administrator has verified them as a judge through the Novus portal.
+## Email Validation
+Email Match | Email Regex
+:--:|:--:
+<img src="/demo/emailMatch.png" width="220" height="480"/> | <img src="/demo/emailRegex.png" width="220" height="480"/>
+
+## Password Validation
+Password Match | Password Regex
+:--:|:--:
+<img src="/demo/passwordMatch.png" width="220" height="480"/> | <img src="/demo/passwordRegex.png" width="220" height="480"/>

@@ -14,6 +14,7 @@
 		57399DFC253782F0009706DF /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57399DFB253782F0009706DF /* PasswordResetViewController.swift */; };
 		576BA3C125508040001CB06C /* StudentEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576BA3BF25508040001CB06C /* StudentEntryTableViewCell.swift */; };
 		576BA3C225508040001CB06C /* StudentEntryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 576BA3C025508040001CB06C /* StudentEntryTableViewCell.xib */; };
+		576BA3C42550F2E5001CB06C /* JudgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576BA3C32550F2E5001CB06C /* JudgeViewController.swift */; };
 		57706051253FC69A00367FED /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57706050253FC69A00367FED /* CustomTextField.swift */; };
 		577060572541146800367FED /* NewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577060562541146800367FED /* NewUser.swift */; };
 		5770605925413B0A00367FED /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5770605825413B0A00367FED /* UserAuth.swift */; };
@@ -37,6 +38,7 @@
 		57399DFB253782F0009706DF /* PasswordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
 		576BA3BF25508040001CB06C /* StudentEntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentEntryTableViewCell.swift; sourceTree = "<group>"; };
 		576BA3C025508040001CB06C /* StudentEntryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StudentEntryTableViewCell.xib; sourceTree = "<group>"; };
+		576BA3C32550F2E5001CB06C /* JudgeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudgeViewController.swift; sourceTree = "<group>"; };
 		57706050253FC69A00367FED /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		577060562541146800367FED /* NewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUser.swift; sourceTree = "<group>"; };
 		5770605825413B0A00367FED /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				570BDF352534D4C200E1EE5A /* SignUpViewController.swift */,
 				57399DFB253782F0009706DF /* PasswordResetViewController.swift */,
 				578C4D8C25435C0300DD5C11 /* HomeViewController.swift */,
+				576BA3C32550F2E5001CB06C /* JudgeViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				5796F4DE2533E65400EDF51D /* SignInViewController.swift in Sources */,
 				57399DFC253782F0009706DF /* PasswordResetViewController.swift in Sources */,
 				5796F4DA2533E65400EDF51D /* AppDelegate.swift in Sources */,
+				576BA3C42550F2E5001CB06C /* JudgeViewController.swift in Sources */,
 				57706051253FC69A00367FED /* CustomTextField.swift in Sources */,
 				5796F4DC2533E65400EDF51D /* SceneDelegate.swift in Sources */,
 				576BA3C125508040001CB06C /* StudentEntryTableViewCell.swift in Sources */,

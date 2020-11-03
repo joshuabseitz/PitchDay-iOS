@@ -77,6 +77,12 @@ class SignInViewController: UIViewController {
 		signUpButton.setTitle(signUpButtonText, for: .normal)
 		footerLabel.text = footerLabelText
 		
+		navigationController?.setNavigationBarHidden(true, animated: true)
+		
+	}
+	
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		  return .lightContent
 	}
 	
 	// MARK - IBAction

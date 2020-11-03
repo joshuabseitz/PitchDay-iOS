@@ -113,6 +113,65 @@ class SignUpViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		setupUI()
+		
+		footerLabel.text = footerLabelText
+		
+		self.title = viewTitle
+		
+		navigationController?.setNavigationBarHidden(true, animated: true)
+	}
+	
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		  return .lightContent
+	}
+	
+	// MARK: - IBActions
+	
+	@IBAction func didTapSignUp(_ sender: Any) {
+		
+		if emptyFields() {
+			
+			displayAlertMessage(messageToDisplay: "Please make sure you have filled out all fields.")
+			
+		} else {
+			
+			let newUser: NewUser = 	NewUser(fName: firstNameField.text!,
+											   lName: lastNameField.text!,
+											   companyName: companyNameField.text!,
+											   email: emailField.text!,
+											   password: passwordField.text!)
+			
+			if emailFieldsMatch() && passwordFieldsMatch() {
+				
+				if !newUser.isFNameValid() {
+					displayAlertMessage(messageToDisplay: "First name field is not valid.")
+				} else if !newUser.isLNameValid() {
+					displayAlertMessage(messageToDisplay: "Last name field is not valid.")
+				} else if !newUser.isCompanyNameValid() {
+					displayAlertMessage(messageToDisplay: "Company name field is not valid.")
+				} else if !newUser.isEmailValid() {
+					displayAlertMessage(messageToDisplay: "Please enter a valid email.")
+				} else if !newUser.isPasswordValid() {
+					displayAlertMessage(messageToDisplay: "Please ensure that your password has at least 2 uppercase letters, 3 lowercase letters, 2 digits, and 1 special character.")
+				} else {
+					if UserAuth.createUser(newUser) {
+						displaySignUpSuccessMessage(messageToDisplay: "Success! Thank for signing up – please sign in now.")
+					} else {
+						displayAlertMessage(messageToDisplay: "We could not create your account – please try using a different email address or contacting info@novusclub.org if issues persist.")
+					}
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+	
+	// MARK: - FUNCTIONS
+	
+	func setupUI() {
 		firstNameField.attributedPlaceholder = firstNameFieldPlaceholder
 		firstNameField.layer.borderColor = standardFieldButtonBorderColor
 		firstNameField.layer.borderWidth = standardFieldBorderWidth
@@ -165,56 +224,7 @@ class SignUpViewController: UIViewController {
 		signUpButton.backgroundColor = signUpButtonBackgroundColor
 		signUpButton.layer.cornerRadius = signUpButtonCornerRadius
 		signUpButton.setTitle(signUpButtonTitle, for: .normal)
-		
-		footerLabel.text = footerLabelText
-		
-		self.title = viewTitle
 	}
-	
-	// MARK: - IBActions
-	
-	@IBAction func didTapSignUp(_ sender: Any) {
-		
-		if emptyFields() {
-			
-			displayAlertMessage(messageToDisplay: "Please make sure you have filled out all fields.")
-			
-		} else {
-			
-			let newUser: NewUser = 	NewUser(fName: firstNameField.text!,
-											   lName: lastNameField.text!,
-											   companyName: companyNameField.text!,
-											   email: emailField.text!,
-											   password: passwordField.text!)
-			
-			if emailFieldsMatch() && passwordFieldsMatch() {
-				
-				if !newUser.isFNameValid() {
-					displayAlertMessage(messageToDisplay: "First name field is not valid.")
-				} else if !newUser.isLNameValid() {
-					displayAlertMessage(messageToDisplay: "Last name field is not valid.")
-				} else if !newUser.isCompanyNameValid() {
-					displayAlertMessage(messageToDisplay: "Company name field is not valid.")
-				} else if !newUser.isEmailValid() {
-					displayAlertMessage(messageToDisplay: "Please enter a valid email.")
-				} else if !newUser.isPasswordValid() {
-					displayAlertMessage(messageToDisplay: "Please ensure that your password has at least 2 uppercase letters, 3 lowercase letters, 2 digits, and 1 special character.")
-				} else {
-					if UserAuth.createUser(newUser) {
-						displaySignUpSuccessMessage(messageToDisplay: "Success! Thank for signing up – please sign in now.")
-					} else {
-						displayAlertMessage(messageToDisplay: "We could not create your account – please try using a different email address or contacting info@novusclub.org if issues persist.")
-					}
-				}
-				
-			}
-			
-		}
-		
-	}
-	
-	
-	// MARK: - FUNCTIONS
 	
 	func emailFieldsMatch() -> Bool {
 		

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	
@@ -26,12 +27,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-//		navigationController?.setNavigationBarHidden(true, animated: true)
 		navigationItem.setHidesBackButton(true, animated: true)
 		title = "Student Entries"
-		self.startupTableview.dataSource = self
-		self.startupTableview.delegate = self
-		self.registerTableViewCells()
+		
+		if Auth.auth().currentUser != nil {
+			let user = Auth.auth().currentUser
+			print("User: \(String(describing: user?.email))")
+			self.startupTableview.dataSource = self
+			self.startupTableview.delegate = self
+			self.registerTableViewCells()
+		} else {
+			print("User is not authenticated.")
+		}
+		
 	}
 	
 	
