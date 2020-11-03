@@ -3,12 +3,6 @@ This is the companion app for the Novus Club web portal. It allows judges to sig
 
 ## Sign-up Process
 
-### Email Validation
-Email Match | Email Regex
-:--:|:--:
-<img src="/Demo/emailMatch.png" width="220" height="480"/> | <img src="/Demo/emailRegex.png" width="220" height="480"/>
-
-### Password Validation
-Password Match | Password Regex
-:--:|:--:
-<img src="/Demo/passwordMatch.png" width="220" height="480"/> | <img src="/Demo/passwordRegex.png" width="220" height="480"/>
+Email Match | Email Regex | Password Match | Password Regex
+:--:|:--:|:--:|:--:
+<img src="/Demo/emailMatch.png" width="220" height="480"/> | <img src="/Demo/emailRegex.png" width="220" height="480"/> | <img src="/Demo/passwordMatch.png" width="220" height="480"/> | <img src="/Demo/passwordRegex.png" width="220" height="480"/>
