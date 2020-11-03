@@ -4,9 +4,9 @@ This is the companion app for the Novus Club web portal. It allows judges to sig
 ## Email Validation
 Email Match | Email Regex
 :--:|:--:
-<img src="/demo/emailMatch.png" width="220" height="480"/> | <img src="/demo/emailRegex.png" width="220" height="480"/>
+<img src="/Demo/emailMatch.png" width="220" height="480"/> | <img src="/Demo/emailRegex.png" width="220" height="480"/>
 
 ## Password Validation
 Password Match | Password Regex
 :--:|:--:
-<img src="/demo/passwordMatch.png" width="220" height="480"/> | <img src="/demo/passwordRegex.png" width="220" height="480"/>
+<img src="/Demo/passwordMatch.png" width="220" height="480"/> | <img src="/Demo/passwordRegex.png" width="220" height="480"/>
