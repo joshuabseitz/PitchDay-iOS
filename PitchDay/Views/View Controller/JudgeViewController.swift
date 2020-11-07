@@ -30,6 +30,10 @@ class JudgeViewController: UIViewController {
 	@IBOutlet weak var button_3: UIButton!
 	@IBOutlet weak var button_4: UIButton!
 	
+	var allScoreButtons: [UIButton] {
+		[button_0, button_1, button_2, button_3, button_4]
+	}
+	
 	@IBOutlet weak var nextButton: UIButton!
 	
 	
@@ -40,12 +44,23 @@ class JudgeViewController: UIViewController {
 	}
 	
 	@IBAction func didTapScore(_ sender: UIButton) {
+		nextButton.isHidden = false
+		scoreButtonsEnabled(false)
 		addScore(sender)
+		nextButton.isHidden = false
 	}
 	
 	@IBAction func didTapNext(_ sender: UIButton) {
 		questionCount += 1
 		question.text = rubricQuestions[questionCount].text
+		nextButton.isHidden = true
+		scoreButtonsEnabled(true)
+	}
+	
+	func scoreButtonsEnabled(_ enabled: Bool) {
+		for button in allScoreButtons {
+			button.isEnabled = enabled
+		}
 	}
 	
 	func addScore(_ button: UIButton) {
