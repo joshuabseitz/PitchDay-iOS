@@ -12,6 +12,7 @@ class ScoreTableViewCell: UITableViewCell {
 
 	@IBOutlet weak var scoreCategoryLabel: UILabel!
 	@IBOutlet weak var scoreValueLabel: UILabel!
+	@IBOutlet var scoreCategoryQuestionLabel: UITextView!
 	
 	override func awakeFromNib() {
         super.awakeFromNib()

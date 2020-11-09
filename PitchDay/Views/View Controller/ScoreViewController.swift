@@ -48,6 +48,7 @@ class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewD
 			
 			cell.scoreCategoryLabel.text = data[indexPath.row].scoreCategory
 			cell.scoreValueLabel.text = String(data[indexPath.row].scoreValue)
+			cell.scoreCategoryQuestionLabel.text = "This startup has identified a significant problem that should be solved."
 			
 			return cell
 		}
