@@ -50,9 +50,22 @@ class JudgeViewController: UIViewController {
 	}
 	
 	@IBAction func didTapNext(_ sender: UIButton) {
-		question.text = rubricQuestions[questionCount].text
-		nextButton.isHidden = true
-		scoreButtonsEnabled(true)
+		
+		questionCount += 1
+		
+		if questionCount >= rubricQuestions.count {
+			print("Judge has answered all rubric questions.")
+			for button in allScoreButtons {
+				button.isHidden = true
+			}
+			
+			nextButton.setTitle("Submit", for: .normal)
+			nextButton.isHidden = false
+		} else {
+			question.text = rubricQuestions[questionCount].text
+			nextButton.isHidden = true
+			scoreButtonsEnabled(true)
+		}
 	}
 	
 	func scoreButtonsEnabled(_ enabled: Bool) {
@@ -62,32 +75,19 @@ class JudgeViewController: UIViewController {
 	}
 	
 	func addScore(_ button: UIButton) {
-		
-		if questionCount >= rubricQuestions.count {
 			
-			print("Judge has answered all rubric questions.")
-			for button in allScoreButtons {
-				button.isHidden = true
-			}
-			
-		} else {
-			
-			questionCount += 1
-			
-			if button.title(for: .normal)!.contains("5") {
-				rubricTracker.append((questionID: rubricQuestions[questionCount].id, score: 5))
-			} else if button.title(for: .normal)!.contains("4") {
-				rubricTracker.append((questionID: rubricQuestions[questionCount].id, score: 4))
-			} else if button.title(for: .normal)!.contains("3") {
-				rubricTracker.append((questionID: rubricQuestions[questionCount].id, score: 3))
-			} else if button.title(for: .normal)!.contains("2") {
-				rubricTracker.append((questionID: rubricQuestions[questionCount].id, score: 2))
-			} else if button.title(for: .normal)!.contains("1") {
-				rubricTracker.append((questionID: rubricQuestions[questionCount].id, score: 1))
-			} else if button.title(for: .normal)!.contains("0") {
-				rubricTracker.append((questionID: rubricQuestions[questionCount].id, score: 0))
-			}
-			
+		if button.title(for: .normal)!.contains("5") {
+			rubricTracker.append((questionID: rubricQuestions[questionCount].id, score: 5))
+		} else if button.title(for: .normal)!.contains("4") {
+			rubricTracker.append((questionID: rubricQuestions[questionCount].id, score: 4))
+		} else if button.title(for: .normal)!.contains("3") {
+			rubricTracker.append((questionID: rubricQuestions[questionCount].id, score: 3))
+		} else if button.title(for: .normal)!.contains("2") {
+			rubricTracker.append((questionID: rubricQuestions[questionCount].id, score: 2))
+		} else if button.title(for: .normal)!.contains("1") {
+			rubricTracker.append((questionID: rubricQuestions[questionCount].id, score: 1))
+		} else if button.title(for: .normal)!.contains("0") {
+			rubricTracker.append((questionID: rubricQuestions[questionCount].id, score: 0))
 		}
 		
 		nextButton.isHidden = false
