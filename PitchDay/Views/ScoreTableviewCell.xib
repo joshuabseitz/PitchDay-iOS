@@ -9,58 +9,100 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="109" id="KGk-i7-Jjw" customClass="ScoreTableViewCell" customModule="PitchDay" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="250" id="KGk-i7-Jjw" customClass="ScoreTableViewCell" customModule="PitchDay" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This startup has identified a significant problem that should be solved." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VfG-dl-C9Q">
-                        <rect key="frame" x="10" y="45" width="218" height="53"/>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="This startup has identified a significant problem that should be solved." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfG-dl-C9Q">
+                        <rect key="frame" x="13" y="38" width="294" height="49"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="49" id="doF-57-ExH"/>
+                            <constraint firstAttribute="width" constant="294" id="fo1-Cg-teZ"/>
+                        </constraints>
                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKv-Lb-hfs">
-                        <rect key="frame" x="248" y="0.0" width="72" height="109"/>
-                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="109" id="geY-VZ-Aqx"/>
-                            <constraint firstAttribute="width" secondItem="IKv-Lb-hfs" secondAttribute="height" multiplier="72:109" id="nLH-hr-4su"/>
-                            <constraint firstAttribute="width" constant="72" id="rbb-ox-Qgc"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Problem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLg-PZ-SOC">
                         <rect key="frame" x="16" y="13" width="78.5" height="24"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zO6-Ir-0y8">
+                        <rect key="frame" x="16" y="95" width="200" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                        <state key="normal" title="0 - Strongly Disagree">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofJ-Bj-7Nw">
+                        <rect key="frame" x="16" y="133" width="200" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                        <state key="normal" title="1 - Disagree">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmI-Fb-bgc">
+                        <rect key="frame" x="16" y="171" width="200" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                        <state key="normal" title="2 - Agree">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5Q-Oy-Axd">
+                        <rect key="frame" x="16" y="209" width="200" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                        <state key="normal" title="3 - Strongly Agree">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="VfG-dl-C9Q" secondAttribute="bottom" constant="11" id="4qz-0O-Xfh"/>
-                    <constraint firstAttribute="trailing" secondItem="IKv-Lb-hfs" secondAttribute="trailing" id="AyQ-Ta-v9G"/>
-                    <constraint firstItem="VLg-PZ-SOC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="S4e-Fy-b5I"/>
-                    <constraint firstItem="IKv-Lb-hfs" firstAttribute="leading" secondItem="VfG-dl-C9Q" secondAttribute="trailing" constant="20" id="YvN-LO-SDl"/>
-                    <constraint firstAttribute="bottom" secondItem="IKv-Lb-hfs" secondAttribute="bottom" id="hKm-3K-yaZ"/>
-                    <constraint firstItem="VLg-PZ-SOC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="jh5-NR-Jnm"/>
-                    <constraint firstItem="VfG-dl-C9Q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="pI3-Cq-JlU"/>
-                    <constraint firstItem="IKv-Lb-hfs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="s7c-BY-ZBp"/>
-                    <constraint firstItem="VfG-dl-C9Q" firstAttribute="top" secondItem="VLg-PZ-SOC" secondAttribute="bottom" constant="8" id="z1Z-Dq-pg1"/>
+                    <constraint firstItem="ofJ-Bj-7Nw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="1mg-uF-swu"/>
+                    <constraint firstItem="VfG-dl-C9Q" firstAttribute="top" secondItem="VLg-PZ-SOC" secondAttribute="bottom" constant="1" id="2ig-Ww-oba"/>
+                    <constraint firstItem="t5Q-Oy-Axd" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="30n-gc-cvC"/>
+                    <constraint firstItem="ofJ-Bj-7Nw" firstAttribute="top" secondItem="zO6-Ir-0y8" secondAttribute="bottom" constant="8" id="5yF-8L-AFN"/>
+                    <constraint firstItem="t5Q-Oy-Axd" firstAttribute="top" secondItem="BmI-Fb-bgc" secondAttribute="bottom" constant="8" id="CET-Bl-cbv"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ofJ-Bj-7Nw" secondAttribute="trailing" constant="159" id="DiM-ID-abR"/>
+                    <constraint firstItem="zO6-Ir-0y8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="LeF-sh-c4F"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="zO6-Ir-0y8" secondAttribute="trailing" constant="159" id="OSM-dz-xnK"/>
+                    <constraint firstAttribute="trailing" secondItem="VfG-dl-C9Q" secondAttribute="trailing" constant="13" id="OY3-bO-Laa"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="t5Q-Oy-Axd" secondAttribute="trailing" constant="159" id="P6s-Ew-H1c"/>
+                    <constraint firstItem="VfG-dl-C9Q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="PbB-f4-dMU"/>
+                    <constraint firstItem="t5Q-Oy-Axd" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="SFM-7R-SCK"/>
+                    <constraint firstItem="VLg-PZ-SOC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="SMM-GL-ZQe"/>
+                    <constraint firstItem="BmI-Fb-bgc" firstAttribute="top" secondItem="ofJ-Bj-7Nw" secondAttribute="bottom" constant="8" id="TXG-Az-QuY"/>
+                    <constraint firstItem="t5Q-Oy-Axd" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="U9K-eU-lm8"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="BmI-Fb-bgc" secondAttribute="trailing" constant="159" id="XYK-Cw-vOJ"/>
+                    <constraint firstItem="VfG-dl-C9Q" firstAttribute="top" secondItem="VLg-PZ-SOC" secondAttribute="bottom" constant="1" id="dDa-Et-ebL"/>
+                    <constraint firstItem="VfG-dl-C9Q" firstAttribute="top" secondItem="VLg-PZ-SOC" secondAttribute="bottom" constant="1" id="fce-su-nEY"/>
+                    <constraint firstItem="VLg-PZ-SOC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="gFd-eo-xtw"/>
+                    <constraint firstAttribute="trailing" secondItem="VLg-PZ-SOC" secondAttribute="trailing" constant="225.5" id="hoG-gj-V2F"/>
+                    <constraint firstItem="VfG-dl-C9Q" firstAttribute="top" secondItem="VLg-PZ-SOC" secondAttribute="bottom" constant="1" id="iyF-Yp-Sx4"/>
+                    <constraint firstItem="BmI-Fb-bgc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="mun-BL-R53"/>
+                    <constraint firstItem="zO6-Ir-0y8" firstAttribute="top" secondItem="VfG-dl-C9Q" secondAttribute="bottom" constant="8" id="ry8-t2-TtY"/>
+                    <constraint firstItem="t5Q-Oy-Axd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ttX-4B-OwH"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="scoreButton0" destination="zO6-Ir-0y8" id="h9f-SV-04U"/>
+                <outlet property="scoreButton1" destination="ofJ-Bj-7Nw" id="Q2s-7U-95a"/>
+                <outlet property="scoreButton2" destination="BmI-Fb-bgc" id="HH8-oy-ZVu"/>
+                <outlet property="scoreButton3" destination="t5Q-Oy-Axd" id="qB4-Ot-FY3"/>
                 <outlet property="scoreCategoryLabel" destination="VLg-PZ-SOC" id="I2e-QG-i99"/>
                 <outlet property="scoreCategoryQuestionLabel" destination="VfG-dl-C9Q" id="uus-uK-ZmW"/>
-                <outlet property="scoreValueLabel" destination="IKv-Lb-hfs" id="ygm-fh-VCx"/>
             </connections>
-            <point key="canvasLocation" x="131.8840579710145" y="142.29910714285714"/>
+            <point key="canvasLocation" x="131.8840579710145" y="189.50892857142856"/>
         </tableViewCell>
     </objects>
 </document>

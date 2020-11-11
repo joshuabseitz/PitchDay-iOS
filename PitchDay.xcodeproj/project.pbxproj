@@ -27,6 +27,7 @@
 		5796F4E42533E65400EDF51D /* User.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5796F4E22533E65400EDF51D /* User.xcdatamodeld */; };
 		5796F4E62533E65600EDF51D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5796F4E52533E65600EDF51D /* Assets.xcassets */; };
 		5796F4E92533E65600EDF51D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5796F4E72533E65600EDF51D /* LaunchScreen.storyboard */; };
+		57A774C3255C5A7B0083A50F /* Button+CustomStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A774C2255C5A7B0083A50F /* Button+CustomStyling.swift */; };
 		57D9F2092559BE6F00005DED /* ScoreTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D9F2072559BE6F00005DED /* ScoreTableviewCell.swift */; };
 		57D9F20A2559BE6F00005DED /* ScoreTableviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57D9F2082559BE6F00005DED /* ScoreTableviewCell.xib */; };
 		57EDC87E2559C93300B0D205 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EDC87D2559C93300B0D205 /* ScoreViewController.swift */; };
@@ -56,6 +57,7 @@
 		5796F4E52533E65600EDF51D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5796F4E82533E65600EDF51D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5796F4EA2533E65600EDF51D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57A774C2255C5A7B0083A50F /* Button+CustomStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+CustomStyling.swift"; sourceTree = "<group>"; };
 		57D9F2072559BE6F00005DED /* ScoreTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableviewCell.swift; sourceTree = "<group>"; };
 		57D9F2082559BE6F00005DED /* ScoreTableviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreTableviewCell.xib; sourceTree = "<group>"; };
 		57EDC87D2559C93300B0D205 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		576BA3BE25507D59001CB06C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				57A774C1255C5A2F0083A50F /* Extension */,
 				5796F4F72534C08500EDF51D /* View Controller */,
 				5796F4F62534C07C00EDF51D /* Storyboard */,
 				576BA3BF25508040001CB06C /* StudentEntryTableViewCell.swift */,
@@ -152,6 +155,14 @@
 				5770605825413B0A00367FED /* UserAuth.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		57A774C1255C5A2F0083A50F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				57A774C2255C5A7B0083A50F /* Button+CustomStyling.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		E0C5C38541EE3CDC083D53CE /* Pods */ = {
@@ -291,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				570BDF362534D4C200E1EE5A /* SignUpViewController.swift in Sources */,
+				57A774C3255C5A7B0083A50F /* Button+CustomStyling.swift in Sources */,
 				5796F4DE2533E65400EDF51D /* SignInViewController.swift in Sources */,
 				57EDC87E2559C93300B0D205 /* ScoreViewController.swift in Sources */,
 				57D9F2092559BE6F00005DED /* ScoreTableviewCell.swift in Sources */,
